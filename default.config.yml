@@ -6,13 +6,28 @@ configure_terminal: true
 configure_osx: true
 
 # Set to 'true' to configure the Dock via dockutil.
-configure_dock: false
+configure_dock: true
 dockitems_remove: []
 # - Launchpad
 # - TV
 # - Podcasts
 # - 'App Store'
-dockitems_persist: []
+dockitems_persist:
+  - name: "Terminal"
+    path: "/Applications/Terminal.app"
+    pos: 3
+  - name: "Google Chrome"
+    path: "/Applications/Google Chrome.app"
+    pos: 5
+  - name: "Firefox"
+    path: "/Applications/Firefox.app"
+    pos: 6
+  - name: "Visual Studio Code"
+    path: "/Applications/Visual Studio Code.app"
+    pos: 7
+  - name: "Slack"
+    path: "/Applications/Slack.app"
+    pos: 8
 # - name: "Sublime Text"
 #   path: "/Applications/Sublime Text.app/"
 #   pos: 5
@@ -24,44 +39,28 @@ sudoers_custom_config: ''
 #   # Allow users in admin group to use sudo with no password.
 #   %admin ALL=(ALL) NOPASSWD: ALL
 
-dotfiles_repo: https://github.com/geerlingguy/dotfiles.git
+dotfiles_repo: https://github.com/kevinlacotaco/dotfiles.git
 dotfiles_repo_accept_hostkey: true
-dotfiles_repo_local_destination: ~/Development/GitHub/dotfiles
+dotfiles_repo_local_destination: ~/Repositories/dotfiles
 dotfiles_files:
   - .zshrc
   - .gitignore
-  - .inputrc
+  - .gitconfig
   - .osx
   - .vimrc
 
 homebrew_installed_packages:
-  # - ansible # Installed via Pip.
-  - autoconf
-  - bash-completion
-  - doxygen
-  - gettext
-  - gifsicle
   - git
-  - github/gh/gh
-  - go
-  - gpg
-  - httpie
-  - iperf
-  - libevent
-  - sqlite
-  - mcrypt
-  - nmap
-  - node
+  - fzf
+  - nginx
+  - terraform
   - nvm
-  - php
-  - ssh-copy-id
-  - cowsay
-  - readline
   - openssl
-  - pv
   - wget
-  - wrk
-  - zsh-history-substring-search
+  - gettext
+  - readline
+  - vim
+  - antigen
 
 homebrew_taps:
   - homebrew/core
@@ -69,21 +68,22 @@ homebrew_taps:
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-  - chromedriver
+  - adoptopenjdk8
   - docker
-  - dropbox
   - firefox
   - google-chrome
-  - handbrake
-  - licecap
-  - sequel-ace
   - slack
-  - sublime-text
-  - transmit
-  - vagrant
+  - visual-studio-code
+  - zoom
+  - spotify
+  - istat-menus
+  - parallels
+  - microsoft-teams
 
 # See `geerlingguy.mas` role documentation for usage instructions.
-mas_installed_apps: []
+mas_installed_apps:
+  - { id: 937984704, name: "amphetamine" }
+  - { id: 497799835, name: "Xcode" }
 mas_email: ""
 mas_password: ""
 
@@ -100,7 +100,8 @@ gem_packages: []
 # - name: bundler
 #   state: present # present/absent/latest, default: present
 #   version: "~> 1.15.1" # default: N/A
-npm_packages: []
+npm_packages:
+  - name: yarn
 # - name: webpack
 #   state: present # present/absent/latest, default: present
 #   version: "^2.6" # default: N/A
