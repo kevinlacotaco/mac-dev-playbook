@@ -7,11 +7,17 @@ configure_osx: true
 
 # Set to 'true' to configure the Dock via dockutil.
 configure_dock: true
-dockitems_remove: []
-# - Launchpad
-# - TV
-# - Podcasts
-# - 'App Store'
+dockitems_remove:
+  - 'Messages'
+  - 'FaceTime'
+  - 'Maps'
+  - 'TV'
+  - 'Music'
+  - 'Podcasts'
+  - 'News'
+  - 'Keynote'
+  - 'Numbers'
+  - 'Pages'
 dockitems_persist:
   - name: "Terminal"
     path: "/System/Applications/Utilities/Terminal.app"
