@@ -14,7 +14,7 @@ dockitems_remove: []
 # - 'App Store'
 dockitems_persist:
   - name: "Terminal"
-    path: "/Applications/Terminal.app"
+    path: "/Applications/Utilities/Terminal.app"
     pos: 3
   - name: "Google Chrome"
     path: "/Applications/Google Chrome.app"
