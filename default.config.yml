@@ -73,6 +73,7 @@ homebrew_installed_packages:
 homebrew_taps:
   - homebrew/core
   - homebrew/cask
+  - homebrew/cask-versions
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
@@ -86,7 +87,7 @@ homebrew_cask_apps:
   - istat-menus
   - parallels
   - microsoft-teams
-  #- adoptopenjdk8
+  - temurin8
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps:
