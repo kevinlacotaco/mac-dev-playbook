@@ -48,6 +48,7 @@ dotfiles_files:
   - .gitconfig
   - .osx
   - .vimrc
+  - .vim
 
 homebrew_installed_packages:
   - git
