@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+xcode-select --install > /dev/null 2>&1
+if [ 0 == $? ]; then
+    sleep 1
+    osascript <<EOD
+tell application "System Events"
+    tell process "Install Command Line Developer Tools"
+        keystroke return
+        click button "Agree" of window "License Agreement"
+    end tell
+end tell
+EOD
+else
+    echo "Command Line Developer Tools are already installed!"
+fi
+
+# When ansible is installed make sure it is on the path
+export PATH="$HOME/Library/Python/3.8/bin:$PATH"
+
+if [ ! command -v pip3 &> /dev/null ]; then
+  sudo pip3 install --upgrade pip
+fi
+
+if [ ! command -v pip &> /dev/null ]; then
+  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+  python3 get-pip.py --user
+
+  rm get-pip.py
+fi
+
+if [ ! command -v ansible &> /dev/null ]; then
+  python3 -m pip install --user ansible
+fi
+
+ssh-keygen -t ed25519 -C "klakotko@gmail.com"
+
+eval "$(ssh-agent -s)"
+
+if [ ! -f "$HOME/.ssh/config" ]; then
+  touch "$HOME/.ssh/config"
+
+  cat > "$HOME/.ssh/config" <<EOF
+Host *
+  AddKeysToAgent yes
+  IgnoreUnknown UseKeychain
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+EOF
+
+ssh-add -K ~/.ssh/id_ed25519
+fi
