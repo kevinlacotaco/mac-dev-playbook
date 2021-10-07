@@ -166,6 +166,10 @@ Additionally, this project is [continuously tested on GitHub Actions' macOS infr
 
 Check out [Ansible for DevOps](https://www.ansiblefordevops.com/), which teaches you how to automate almost anything with Ansible.
 
+## Useful Links
+
+[Mac Setup](https://sourabhbajaj.com/mac-setup/)
+
 ## Author
 
 This project was created by [Jeff Geerling](https://www.jeffgeerling.com/) (originally inspired by [MWGriffin/ansible-playbooks](https://github.com/MWGriffin/ansible-playbooks)).
