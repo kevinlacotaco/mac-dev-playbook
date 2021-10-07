@@ -88,6 +88,7 @@ homebrew_cask_apps:
   - parallels
   - microsoft-teams
   - temurin8
+  - loom
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps:
